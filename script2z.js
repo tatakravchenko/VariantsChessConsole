@@ -1,11 +1,22 @@
 
     function Variants(){
         var strLetters="ABCDEFGH";
+        var strNums = "12345678";
 
         val1=document.getElementById("basState").value;// -- получение значения в поле ввода координаты места нахождения коня
         var let=val1[0];//--Буквенная составляющая координаты
         var num=Number(val1[1]);//--Числовая составляющая координаты
         indStr = strLetters.indexOf(let)+1;
+        indNum = strNums.indexOf(num)+1;
+        if(indStr==0 || indNum==0 ||val1.length!=2)
+        {
+           var mes="Sorry! Data is incorrect!";
+           $('#prizePopup').modal('show');
+          document.getElementsByClassName("modal-body")[0].innerHTML=mes;
+            return ;
+        }
+        
+
 
         var arrX=[];//--массив чисел
         var arrY=[];//--массив букв
